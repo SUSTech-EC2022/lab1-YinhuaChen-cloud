@@ -45,6 +45,8 @@ bestSoFarFit = maxfit;
 bestSoFarSolution = population(maxindex,:);
 nbEval = nbEval + 1;
 
+x_axis = [nbGen];
+y_axis = [bestSoFarFit];
 % Start the loop
 while (nbEval<T) 
 % Reproduction (selection, crossver)
@@ -87,6 +89,7 @@ while (nbEval<T)
             end
         end
     end
+    nbGen = nbGen + 1;
 
 % Replacement & Evaluation
     population = bin2dec(next_generation);
@@ -100,10 +103,14 @@ while (nbEval<T)
     solution_gen = [solution_gen; dec2bin(population(maxindex,:))];  %best phenotype of each generation
     fitness_pop = maxfit;   %best fitness in current population
     nbEval = nbEval + 1;
+
+    x_axis = [x_axis, nbGen];
+    y_axis = [y_axis, bestSoFarFit];
 end
 bestSoFarFit
 bestSoFarSolution
 % solution_gen
+plot(x_axis,y_axis)
 
 
 
