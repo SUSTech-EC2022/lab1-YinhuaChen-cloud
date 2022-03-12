@@ -1,0 +1,6 @@
+# List of untracked files to ignore
+*.prj
+*.asv
+key.txt
+resources/
+
